@@ -11,5 +11,5 @@
         <%= form.text_area :description, placeholder: "MEMO" %>
         <%= form.submit "UPDATE" %>
     <% end %>
-    <%= button_to "DESTROY", note_path(note.id), method: :delete %>
+    <%= button_to "DEL", note_path(note.id), method: :delete %>
 <% end %>

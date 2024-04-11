@@ -1,4 +1,7 @@
 class NotesController < ApplicationController
+
+
+
   def index
     @note_new = Note.new
     @notes = Note.all
@@ -28,5 +31,7 @@ class NotesController < ApplicationController
   def notes_params
     params.require(:note).permit(:title, :description)
   end
+
+
 
 end
