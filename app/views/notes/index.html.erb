@@ -16,3 +16,14 @@
 <% end %>
 
 
+<h1><%= current_user.name %> のToDo一覧</h1>
+<% if @notes.present? %>
+  <ul>
+    <% @notes.each do |todo| %>
+      <li><%= todo.title %></li>
+      <!-- 必要に応じて他のToDoの情報を表示 -->
+    <% end %>
+  </ul>
+<% else %>
+  <p>まだToDoを投稿していません。</p>
+<% end %>

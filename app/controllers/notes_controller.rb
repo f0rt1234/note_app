@@ -1,16 +1,20 @@
 class NotesController < ApplicationController
-
+  before_action :authenticate_user! 
 
 
   def index
     @note_new = Note.new
-    @notes = Note.all
+    @user = current_user
+    @notes = @user.notes 
+    
   end
 
   def create
     @note_new = Note.new(notes_params)
+    @note_new.user = current_user
     @note_new.save
     redirect_to root_path
+
   end
 
   def update
@@ -29,7 +33,7 @@ class NotesController < ApplicationController
   private
   
   def notes_params
-    params.require(:note).permit(:title, :description)
+    params.require(:note).permit(:user_id, :title, :description)
   end
 
 
