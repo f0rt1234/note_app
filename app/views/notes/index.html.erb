@@ -1,42 +1,14 @@
 
-<%
-=begin
-%>
-
-<%= form_with model: @note_new, local: true, method: :post do |form| %>
-    <%= form.text_field :title, placeholder: "TITLE" %>
-    <%= form.text_area :description, placeholder: "MEMO" %>
-    <%= form.submit "NEW" %>
-<% end %>
-
-<% @notes.reverse.each do |note| %>
-    <%= form_with model: note, url: note_path(note.id), local: true, method: :patch do |form| %>
-        <%= form.text_field :title, placeholder: "TITLE" %>
-        <%= form.text_area :description, placeholder: "MEMO" %>
-        <%= form.submit "UPDATE" %>
-    <% end %>
-    <%= button_to "DEL", note_path(note.id), method: :delete %>
-<% end %>
-
-<% =end %>
-
-<%
-=end
-%>
-
 <%= link_to "new_note", new_note_path, data: { turbo_frame: 'modal'} %>
 
-<h1><%= current_user.name %> のToDo一覧</h1>
+<h1><%= current_user.name %> のNote一覧</h1>
 
 
 <div id="notes">
   <% if @notes.present? %>
       <% @notes.each do |note| %>
         <%= render note %>
-        <!-- 必要に応じて他のToDoの情報を表示 -->
       <% end %>
-  <% else %>
-    <p>まだToDoを投稿していません。</p>
   <% end %>
 </div>
 

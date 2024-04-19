@@ -15,19 +15,18 @@
     <header>
         <% if user_signed_in? %>
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
           <li>
-          <%= link_to "EDIT", edit_user_registration_path  %>
+          <%= link_to "Edit Account", edit_user_registration_path  %>
           </li>
         <% else %>
           <li>
-            <%= link_to "サインアップ", new_user_registration_path %>
+            <%= link_to "Sign up", new_user_registration_path %>
           </li>
           <li>
-            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "Log in", new_user_session_path %>
           </li>
-
         <% end %>
       </header>
     <%# deivseのフラッシュメッセージを表示 %>
@@ -36,6 +35,6 @@
     <%= turbo_frame_tag 'modal' %>
 
     <%= yield %>
-    
+
   </body>
 </html>
