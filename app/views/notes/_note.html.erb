@@ -1,0 +1,21 @@
+
+
+
+<div id="note_<%= note.id %>" style="border: solid;padding: 5px; margin: 10px 0">
+  <% frame_id = dom_id(note, "modal") %>
+     <%= form_with model: note, data: { turbo_frame: frame_id } do %>
+      <%= turbo_frame_tag frame_id do %>
+        <%= link_to 'Destroy', note, data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
+        <%= link_to 'Edit', edit_note_path(note), data: { turbo_stream: true ,turbo_frame: 'modal'} %>
+        <h2>
+          <%= note.title %>
+          <br>
+          <%= note.description %>
+          <br>
+        </h2>
+      <% end %>
+    <% end %>
+</div>
+
+
+

@@ -1,0 +1,22 @@
+
+<%= form_with(model: note, html: { data: {action: 'turbo:submit-end->modal#close'}}) do |form| %>
+    <div>
+         <%= form.label :title, style: "display: block" %>
+        <%= form.text_area :title %>
+      </div>
+      <div>
+        <%= form.label :body, style: "display: block" %>
+        <%= form.text_area :description %>
+      </div>
+  
+
+    <div>
+      <%= form.submit %>
+    </div>
+<% end %>
+
+
+
+
+
+

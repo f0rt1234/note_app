@@ -1,4 +1,7 @@
 
+<%
+=begin
+%>
 
 <%= form_with model: @note_new, local: true, method: :post do |form| %>
     <%= form.text_field :title, placeholder: "TITLE" %>
@@ -15,17 +18,26 @@
     <%= button_to "DEL", note_path(note.id), method: :delete %>
 <% end %>
 
+<% =end %>
+
+<%
+=end
+%>
+
+<%= link_to "new_note", new_note_path, data: { turbo_frame: 'modal'} %>
 
 <h1><%= current_user.name %> のToDo一覧</h1>
-<% if @notes.present? %>
-  <ul>
-    <% @notes.each do |todo| %>
-      <li><%= todo.title %></li>
-      <!-- 必要に応じて他のToDoの情報を表示 -->
-    <% end %>
-  </ul>
-<% else %>
-  <p>まだToDoを投稿していません。</p>
-<% end %>
+
+
+<div id="notes">
+  <% if @notes.present? %>
+      <% @notes.each do |note| %>
+        <%= render note %>
+        <!-- 必要に応じて他のToDoの情報を表示 -->
+      <% end %>
+  <% else %>
+    <p>まだToDoを投稿していません。</p>
+  <% end %>
+</div>
 
 

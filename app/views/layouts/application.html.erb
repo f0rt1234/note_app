@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple-v1.css">
   </head>
 
   <body>
@@ -32,8 +33,9 @@
     <%# deivseのフラッシュメッセージを表示 %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
+    <%= turbo_frame_tag 'modal' %>
 
     <%= yield %>
+    
   </body>
 </html>

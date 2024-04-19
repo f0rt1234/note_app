@@ -12,23 +12,41 @@ class NotesController < ApplicationController
   def create
     @note_new = Note.new(notes_params)
     @note_new.user = current_user
-    @note_new.save
-    redirect_to root_path
 
+    respond_to do |format|
+      if @note_new.save
+        format.turbo_stream
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
   end
+
+
+  def edit
+    @note = Note.find(params[:id])
+  end
+
 
   def update
     @note = Note.find(params[:id])
-    @note.update(notes_params)
-    redirect_to root_path
+
+    respond_to do |format|
+      if @note.update(notes_params)
+        format.turbo_stream
+      end
+    end
   end
 
   def destroy
     @note = Note.find(params[:id])
     @note.destroy
-    redirect_to root_path
+  
   end
 
+  def new
+    @note = Note.new
+  end
 
   private
   

@@ -72,3 +72,8 @@ group :production do
 end
 
 gem 'devise'
+gem 'mini_racer'
+gem 'sassc-rails'
+gem 'bootstrap'
+
+gem 'jquery-rails'
