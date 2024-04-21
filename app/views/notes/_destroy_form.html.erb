@@ -1,0 +1,9 @@
+
+<%= turbo_frame_tag "modal" do %>
+    <%= form_with(model: note, method: :delete, html: { data: { action: 'turbo:submit-end->modal#close' } }) do |form| %>
+        <%= note.title %><br>
+        <%= note.description %><br>
+        <%= button_to 'Destroy', note, data: { turbo_method: :delete } %>
+    <% end %>
+<% end %>
+

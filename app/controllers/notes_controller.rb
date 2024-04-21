@@ -1,3 +1,4 @@
+
 class NotesController < ApplicationController
   before_action :authenticate_user! 
 
@@ -40,9 +41,19 @@ class NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
-    @note.destroy
-  
+    
+    respond_to do |format|
+      if @note.destroy
+        format.turbo_stream
+      end
+    end
+     
   end
+
+  def show
+    @note = Note.find(params[:id])
+  end
+  
 
   def new
     @note = Note.new
