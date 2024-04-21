@@ -11,6 +11,8 @@
           <%= note.description %>
           <br>
         </h5>
+
+        <%= render partial: 'status_progress_buttons', locals: { note: note } %>
       <% end %>
     <% end %>
 </div>
