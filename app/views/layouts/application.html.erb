@@ -9,10 +9,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple-v1.css">
+
+
   </head>
 
   <body>
     <header>
+        <%# フラッシュメッセージを表示 %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        
         <% if user_signed_in? %>
           <li>
             <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -29,12 +35,15 @@
           </li>
         <% end %>
       </header>
-    <%# deivseのフラッシュメッセージを表示 %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
     <%= turbo_frame_tag 'modal' %>
 
     <%= yield %>
+    <script>
+    $(function(){
+      $(".alert, .notice").fadeOut(5000);
+    });
+    </script>
 
   </body>
 </html>

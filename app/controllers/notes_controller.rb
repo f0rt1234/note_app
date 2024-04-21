@@ -15,7 +15,7 @@ class NotesController < ApplicationController
     @note_new.user = current_user
 
     respond_to do |format|
-      if @note_new.save
+      if @note_new.save     
         format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
