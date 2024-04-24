@@ -6,9 +6,11 @@
         <%= link_to 'Destroy', note_path(note), data: { turbo_stream: true ,turbo_frame: 'modal'} %>
         <%= link_to 'Edit', edit_note_path(note), data: { turbo_stream: true ,turbo_frame: 'modal'} %>
         <h5>
-          <%= note.title %>
+           
           <br>
-          <%= note.description %>
+            <%= note.title %>
+          <br>
+            <%= note.description %>
           <br>
         </h5>
 
@@ -16,6 +18,3 @@
       <% end %>
     <% end %>
 </div>
-
-
-

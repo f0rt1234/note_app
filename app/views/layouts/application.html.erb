@@ -9,15 +9,17 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple-v1.css">
-
+ 
 
   </head>
 
   <body>
+  
     <header>
-        <%# フラッシュメッセージを表示 %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
+        
+      </div>
         
         <% if user_signed_in? %>
           <li>
@@ -34,6 +36,8 @@
             <%= link_to "Log in", new_user_session_path %>
           </li>
         <% end %>
+        
+        
       </header>
 
     <%= turbo_frame_tag 'modal' %>
