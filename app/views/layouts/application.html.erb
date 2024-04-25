@@ -26,7 +26,7 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
           <li>
-          <%= link_to "Edit Account", edit_user_registration_path  %>
+          <%= link_to "Edit Account", edit_user_registration_path , id: "reload-link" %>
           </li>
         <% else %>
           <li>
@@ -46,6 +46,17 @@
     <script>
     $(function(){
       $(".alert, .notice").fadeOut(5000);
+    });
+    </script>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // リンクをクリックしたらページを遅延してリロードする
+      document.getElementById("reload-link").addEventListener("click", function(event) {
+        setTimeout(function() {
+          location.reload(); // 1秒後にページをリロードする
+        }, 1000); // 1000ミリ秒 = 1秒
+      });
     });
     </script>
 
