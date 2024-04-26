@@ -1,15 +1,25 @@
 <% statuses = { 0 => "planned", 1 => "progress", 2 => "done" } %>
-<% statuses_btn_enabled = { 0 => "btn btn-primary", 1 => "btn btn-success", 2 => "btn btn-danger" } %>
-<% statuses_btn_disabled = { 0 => "btn btn-outline-primary", 1 => "btn btn-outline-success", 2 => "btn btn-outline-danger" } %>
+<% statuses_btn_enabled = { 0 => "bulb_color_0", 1 => "bulb_color_1", 2 => "bulb_color_2" } %>
+<% statuses_btn_disabled = { 0 => "bulb_color_0", 1 => "bulb_color_1", 2 => "bulb_color_2" } %>
+
 
 <% statuses.each do |status, value| %>        
   <%= form_with model: note, url: note_path(note.id), local: true, method: :patch do |form| %>
     <%= form.hidden_field :status_progress, value: status , readonly: true %>
 
-    <% if status == note.status_progress %>
-      <button type="submit" class= "<%= statuses_btn_enabled[status] %>" ><%= status %></button>
-    <% else  %>
-      <button type="submit" class= "<%= statuses_btn_disabled[status] %>" ><%= status %></button>
-    <% end %>
+      <% if status == note.status_progress %>
+        <%= button_tag type: "submit", class: "btn btn-default" do %>
+          <div class= <%= statuses_btn_enabled[status] %> >
+            <i class="ri-lightbulb-flash-fill"></i>
+          <div/>
+        <% end %>
+      <% else  %>
+        <%= button_tag type: "submit", class: "btn btn-default" do %>
+          <div class= <%= statuses_btn_disabled[status] %> >
+            <i class="ri-lightbulb-line"></i>
+          <div/>
+        <% end %>
+      <% end %>
+
   <% end %>
 <% end %>
