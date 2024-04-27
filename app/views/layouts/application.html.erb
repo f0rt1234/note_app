@@ -8,7 +8,14 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
+ 
+
+    <!-- リセットCSS -->
+    <link rel="stylesheet" href ="https://cdn.skypack.dev/sanitize.css">
+    <!-- スタイルシート　-->
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple-v1.css">
+      
     <meta name="turbo-cache-control" content="no-cache">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -17,12 +24,8 @@
   <body>
   
     <header>
-      <h1>NOTE_APP</h1>
+      <h1>study note app</h1>
 
-      <% if user_signed_in? %>
-        <h1><%= current_user.name %> のNote一覧</h1>
-      <% end %>
- 
       <div class="d-flex justify-content-end align-items-center">
         <% if notice.present? %>
           <div class="alert alert-primary mr-2">
@@ -36,7 +39,8 @@
           </div>
         <% end %>
 
-        <ul class="nav flex-column">
+        <ul class="nav justify-content-end">
+        <div class="row">
           <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to edit_user_registration_path, class: "nav-link" do%>
@@ -47,6 +51,9 @@
               <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do%>
                <i class="ri-logout-box-line">Log out</i>
               <% end %>
+            </li>
+            <li class="nav-item">
+              <h5><%= current_user.name %>:ログイン中</h5>
             </li>
           <% else %>
             <li class="nav-item">
@@ -60,6 +67,7 @@
               <% end %>
             </li>
           <% end %>
+          </div>   
         </ul>
       </div>                
         

@@ -1,8 +1,8 @@
-
-
-<%= link_to  new_note_path, class: "btn btn-default" , data: { turbo_frame: 'modal'} do %>
-  <i class="ri-sticky-note-line">new_note</i>
-<% end %>
+<ul class="nav">
+  <%= link_to  new_note_path, class: "btn btn-default" , data: { turbo_frame: 'modal'} do %>
+    <i class="ri-sticky-note-line">new_note</i>
+  <% end %>
+</ul>
 
 <div id="notes">
   <% if @notes.present? %>

@@ -3,21 +3,19 @@
   <% frame_id = dom_id(note, "modal") %>
      <%= form_with model: note, data: { turbo_frame: frame_id } do %>
       <%= turbo_frame_tag frame_id do %>
-        <%= link_to  note_path(note), class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
-          <i class="ri-delete-bin-6-line"></i>
-        <% end %>
-        <%= link_to  edit_note_path(note) , class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
-          <i class="ri-edit-box-line"></i>
-        <% end %>
-
+        <ul class="nav justify-content-end">
+          <%= link_to  note_path(note), class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
+            <i class="ri-delete-bin-6-line">Delete</i>
+          <% end %>
+          <%= link_to  edit_note_path(note), class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
+            <i class="ri-edit-box-line">Edit</i>
+          <% end %>
+        </ul>
         <h5>
-          <br>
             <%= note.title %>
           <br>
             <%= note.description %>
-          <br>
         </h5>
-
         <%= render partial: 'status_progress_buttons', locals: { note: note } %>
       <% end %>
     <% end %>

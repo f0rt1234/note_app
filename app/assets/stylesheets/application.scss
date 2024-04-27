@@ -15,4 +15,18 @@
 
 .delete_color{
     background-color: red; 
+    color: white; 
 }
+
+@media (prefers-color-scheme: dark) {
+    .ri-edit-box-line{
+        color: white;   
+    }
+    .ri-delete-bin-6-line{
+        color: white;   
+    }
+    .modal-content{
+        background:rgb(0, 0, 0);
+        border: 1px solid;
+        }
+  }
