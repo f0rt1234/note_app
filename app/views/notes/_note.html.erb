@@ -3,10 +3,14 @@
   <% frame_id = dom_id(note, "modal") %>
      <%= form_with model: note, data: { turbo_frame: frame_id } do %>
       <%= turbo_frame_tag frame_id do %>
-        <%= link_to 'Destroy', note_path(note), data: { turbo_stream: true ,turbo_frame: 'modal'} %>
-        <%= link_to 'Edit', edit_note_path(note), data: { turbo_stream: true ,turbo_frame: 'modal'} %>
+        <%= link_to  note_path(note), class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
+          <i class="ri-delete-bin-6-line"></i>
+        <% end %>
+        <%= link_to  edit_note_path(note) , class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
+          <i class="ri-edit-box-line"></i>
+        <% end %>
+
         <h5>
-           
           <br>
             <%= note.title %>
           <br>
@@ -18,3 +22,7 @@
       <% end %>
     <% end %>
 </div>
+
+
+
+
