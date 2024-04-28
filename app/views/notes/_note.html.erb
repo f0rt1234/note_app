@@ -1,26 +1,27 @@
-
-<div id="note_<%= note.id %>" style="border: solid;padding: 5px; margin: 10px 0">
-  <% frame_id = dom_id(note, "modal") %>
-     <%= form_with model: note, data: { turbo_frame: frame_id } do %>
-      <%= turbo_frame_tag frame_id do %>
-        <ul class="nav justify-content-end">
-          <%= link_to  note_path(note), class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
-            <i class="ri-delete-bin-6-line">Delete</i>
-          <% end %>
-          <%= link_to  edit_note_path(note), class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
-            <i class="ri-edit-box-line">Edit</i>
-          <% end %>
-        </ul>
-        <h5>
-            <%= note.title %>
-          <br>
-            <%= note.description %>
-        </h5>
-        <%= render partial: 'status_progress_buttons', locals: { note: note } %>
+<div id="note_<%= note.id %>" style="padding: 5px; margin: 10px 0">
+  <div class="card">
+    <% frame_id = dom_id(note, "modal") %>
+      <%= form_with model: note, data: { turbo_frame: frame_id } do %>
+        <%= turbo_frame_tag frame_id do %>
+          <div class="card-header">
+            <ul class="nav justify-content-end">
+              <div class="col">Note</div>
+              <%= link_to  note_path(note), class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
+                <i class="ri-delete-bin-6-line">Delete</i>
+              <% end %>
+              <%= link_to  edit_note_path(note), class: "btn btn-default", data: { turbo_stream: true ,turbo_frame: 'modal'} do %>
+                <i class="ri-edit-box-line">Edit</i>
+              <% end %>
+            </ul>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= note.title %></h5>            
+              <br>
+              <p class="card-text"><%=safe_join(note.description.split("\n"),tag(:br))%></p>
+          </div>
+          <%= render partial: 'status_progress_buttons', locals: { note: note } %>
+        <% end %>
       <% end %>
-    <% end %>
+      </div>
+  </div>
 </div>
-
-
-
-

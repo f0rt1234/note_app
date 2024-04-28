@@ -18,6 +18,8 @@
     color: white; 
 }
 
+
+
 @media (prefers-color-scheme: dark) {
     .ri-edit-box-line{
         color: white;   
@@ -28,5 +30,15 @@
     .modal-content{
         background:rgb(0, 0, 0);
         border: 1px solid;
-        }
+    }
+    .card-header{
+        background-color: rgb(75, 61, 61);
+        color: white; 
+        border: 1px solid;
+    }
+    .card{
+        background-color: rgb(39, 36, 36);
+        color: white; 
+        border: 1px solid;
+    }
   }

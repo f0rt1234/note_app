@@ -6,7 +6,7 @@
 
 <div id="notes">
   <% if @notes.present? %>
-      <% @notes.each do |note| %>
+      <% @notes.reverse.each do |note| %>
         <%= render note %>
       <% end %>
   <% end %>
