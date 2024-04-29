@@ -98,5 +98,4 @@ Rails.application.configure do
 
   # 本番環境のホスト設定
   config.host = 'note-app-fl5i.onrender.com'
-  config.port = 3000
 end
