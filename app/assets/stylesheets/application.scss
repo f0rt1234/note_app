@@ -14,9 +14,11 @@
 }
 
 .delete_color{
-    background-color: red; 
+    background-color: rgb(223, 22, 22); 
     color: white; 
+    text-align:center;
 }
+
 
 
 
@@ -40,5 +42,8 @@
         background-color: rgb(39, 36, 36);
         color: white; 
         border: 1px solid;
+    }
+    .ri-sticky-note-line{
+        color: white;   
     }
   }

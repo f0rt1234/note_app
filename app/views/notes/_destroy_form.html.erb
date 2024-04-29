@@ -1,12 +1,9 @@
 
 <%= turbo_frame_tag "modal" do %>
     <%= form_with(model: note, method: :delete, html: { data: { action: 'turbo:submit-end->modal#close' } }) do |form| %>
-        <%= note.title %><br>
         <%= note.description %><br>
-  
-        <%= button_to 'Delete', note, data: { turbo_method: :delete , turbo_confirm: "削除しますか?" } ,class:"delete_color"%>
-
-
+        <h5>noteを削除してよろしいですか？</h5>
+        <%= button_to 'Delete', note, data: { turbo_method: :delete } ,class:"delete_color"%>
     <% end %>
 <% end %>
 
