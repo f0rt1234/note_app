@@ -19,8 +19,12 @@
     text-align:center;
 }
 
-
-
+.custom-button {
+    /* ここにボタンのスタイルを指定 */
+    padding: 10px 20px; /* 例として指定 */
+    font-size: 16px; /* 例として指定 */
+    width: 422px; /* 幅を調整 */
+}
 
 @media (prefers-color-scheme: dark) {
     .ri-edit-box-line{
@@ -46,4 +50,11 @@
     .ri-sticky-note-line{
         color: white;   
     }
+    .btn-close{
+        color: white; 
+        background-color: white; 
+        border: 1px solid;
+    }
   }
+
+
