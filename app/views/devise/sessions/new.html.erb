@@ -19,10 +19,9 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in" , class: "custom-button"%>
-      
+      <%= f.submit "Log in"%>
     </div>
   <% end %>
 
-  <%= button_to 'Guest Log in', users_guest_sign_in_path, data: { "turbo-method": :post } , class: "custom-button"%>
+  <%= button_to 'Guest Log in', users_guest_sign_in_path, data: { "turbo-method": :post }%>
   <%= render "devise/shared/links" %>
