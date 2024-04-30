@@ -25,7 +25,11 @@
   
     <header>
       <h1>study note app</h1>
-
+      <% if flash[:turbo_alert].present? %>
+        <div class="alert alert-warning mr-2">
+          <%= flash[:turbo_alert] %>
+        </div>
+      <% end %>
       <div class="d-flex justify-content-end align-items-center">
         <% if notice.present? %>
           <div class="alert alert-primary mr-2">

@@ -1,22 +1,29 @@
+<%= turbo_frame_tag id="new" do %>
 
-<%= form_with(model: note, html: { data: {action: 'turbo:submit-end->modal#close'}}) do |form| %>
-      <div>
-        <%= form.label :title, style: "display: block" %>
-        <%= form.text_field :title %>
-      </div>
-      <div>
-        <%= form.label :description, style: "display: block" %>
-        <%= form.text_area :description %>
-      </div>
+  <%= form_with(model: note, html: { data: {action: 'turbo:submit-end->modal#close'}}) do |form| %>
   
-
-    <div>
-      <%= form.submit "Create New" %>
-    </div>
-<% end %>
-
-
-
-
-
-
+ 
+        <% if flash[:turbo_create_alert].present? %>
+          <div class="alert alert-warning mr-2">
+            <%= flash[:turbo_create_alert] %>
+          </div>
+        <% end %>
+  
+        <div>
+          <%= form.label :title, style: "display: block" %>
+          <%= form.text_field :title %>
+        </div>
+        <div>
+          <%= form.label :description, style: "display: block" %>
+          <%= form.text_area :description %>
+        </div>
+    
+  
+      <div>
+        <%= form.submit "Create New" %>
+      </div>
+  <% end %>
+  
+  
+  <% end %>
+ 

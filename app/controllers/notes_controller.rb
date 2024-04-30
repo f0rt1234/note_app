@@ -13,11 +13,14 @@ class NotesController < ApplicationController
   def create
     @note_new = Note.new(notes_params)
     @note_new.user = current_user
-
+    @note = Note.new
+    
     respond_to do |format|
       if @note_new.save     
+        flash.now.notice = "Content was successfully updated."
         format.turbo_stream
       else
+        flash[:turbo_create_alert] = "Descriptionは空にはできません。"
         format.html { render :new, status: :unprocessable_entity }
       end
     end
@@ -35,6 +38,9 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.update(notes_params)
         format.turbo_stream
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        flash[:turbo_update_alert] = "Descriptionは空にはできません。"
       end
     end
   end

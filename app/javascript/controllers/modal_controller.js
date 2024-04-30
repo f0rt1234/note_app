@@ -9,8 +9,11 @@ export default class extends Controller {
     this.modal.show()
   }
 
-  close() {
-    this.modal.hide()
+  close(event) {
+    if (event.detail.success) {
+      // モーダルを閉じる
+      this.modal.hide()
+    }
   }
 
 }
