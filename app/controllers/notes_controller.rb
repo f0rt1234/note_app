@@ -13,11 +13,10 @@ class NotesController < ApplicationController
   def create
     @note_new = Note.new(notes_params)
     @note_new.user = current_user
-    @note = Note.new
+    @note = Note.new(notes_params)
     
     respond_to do |format|
       if @note_new.save     
-        flash.now.notice = "Content was successfully updated."
         format.turbo_stream
       else
         flash[:turbo_create_alert] = "Descriptionは空にはできません。"
