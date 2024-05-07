@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+学習用メモアプリです。
 
-Things you may want to cover:
+使用技術
+Ruby On Rails7
+hotwire(Turbo,Stimulus)(非同期処理、javascriptのフレームワーク）
+devise(ユーザー認証)
+html,css(レイアウト調整)
+javascript(モーダル)
+bootstrap5(モーダル)
 
-* Ruby version
+環境
+Ubuntu(VirtualBox)
+Linux
+Vscode
 
-* System dependencies
+デプロイ先
+Render(クラウドサービス)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
